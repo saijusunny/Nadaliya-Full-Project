@@ -39,7 +39,7 @@ def login_main(request):
         password = request.POST['password']
         print(username)
         user = authenticate(username=username, password=password)
-        if user is not None:
+        if user is None:
             return redirect('login_main')
         
         if User_Registration.objects.filter(username=request.POST['username'], password=request.POST['password'],role="user1").exists():
@@ -47,10 +47,9 @@ def login_main(request):
             member = User_Registration.objects.get(username=request.POST['username'],password=request.POST['password'])
             
             request.session['userid'] = member.id
-            if User_Registration.objects.filter(username=request.POST['username'], password=request.POST['password'],role="user1", status="Approved").exists():
-                return redirect('staff_home')
-            else:
-               return redirect('staff_validate') 
+            
+            return redirect('staff_home')
+           
 
 
        
@@ -129,13 +128,16 @@ def resetPassword(request):
     else:
         return render(request,'index/forget-password/resetPassword.html')
 
+def logout(request):
+    if 'userid' in request.session:  
+        request.session.flush()
+        return redirect('/')
+    else:
+        return redirect('/')
 ############################################################# <<<<<<<<<< STAFF MODULE >>>>>>>>>>>>>>
 
-def staff_validate(request):
-    return render(request, 'staff/staff_validate.html')
+
     
-
-
 def staff_home(request):
     return render(request, 'staff/staff_home.html')
 #######################################logout################### <<<<<<<<<< USER MODULE >>>>>>>>>>>>>>>>
@@ -143,22 +145,15 @@ def staff_home(request):
 def user_base(request):
     ids=request.session['userid']
     usr=Profile_User.objects.get(user=ids)
+    lk=category.objects.get(id=1)
+ 
     context={
-        'user':usr
+        'user':usr,
+        "lk":lk
     }
     return render(request, 'user/user_base.html',context)
 
-def user_home(request):
-    if request.session.has_key('userid'):
-        pass
-    else:
-        return redirect('/')
-    ids=request.session['userid']
-    usr=Profile_User.objects.get(user=ids)
-    context={
-        'user':usr
-    }
-    return render(request, 'user/user_home.html',context)
+
 
 def user_registration(request):
 
@@ -244,9 +239,29 @@ def profile_user_creation(request):
     return render(request,'index\index_user\profile_user_creation.html', context)
 
 
-def logout(request):
-    if 'userid' in request.session:  
-        request.session.flush()
-        return redirect('/')
+def user_home(request):
+    if request.session.has_key('userid'):
+        pass
     else:
         return redirect('/')
+    ids=request.session['userid']
+    usr=Profile_User.objects.get(user=ids)
+    context={
+        'user':usr
+    }
+    return render(request, 'user/user_home.html',context)
+
+def category_items(request, category):
+    if request.session.has_key('userid'):
+        pass
+    else:
+        return redirect('/')
+    ids=request.session['userid']
+    usr=Profile_User.objects.get(user=ids)
+    items=item.objects.filter(category_id=category)
+    
+    context={
+        'user':usr,
+        "items":items
+    }
+    return render(request, 'user/category_items.html',context)

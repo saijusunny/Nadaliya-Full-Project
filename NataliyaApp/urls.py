@@ -15,14 +15,13 @@ urlpatterns = [
     ############################################################ <<<<<<<<< Staff MODULE >>>>>>>>>>>>>>>>>
  
     path('staff_home/',views.staff_home,name='staff_home'),
-    path('staff_validate/',views.staff_validate,name='staff_validate'),
+
     ############################################################ <<<<<<<<< User MODULE >>>>>>>>>>>>>>>>>
 
     path('user_registration/',views.user_registration,name='user_registration'),
     path('index_user_confirmation/<int:user_id>/',views.index_user_confirmation,name='index_user_confirmation'),
     path('profile_user_creation/',views.profile_user_creation,name='profile_user_creation'),
-    
     path('user_home/',views.user_home,name='user_home'),
-
+    path('category_items/<int:category>',views.category_items,name='category_items'),
     
     ]

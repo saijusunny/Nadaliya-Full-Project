@@ -5,6 +5,8 @@ import re
 from django.core.validators import EmailValidator
 from django.contrib import messages
 
+from django.core.validators import RegexValidator
+
 ########################################################<<<<<<<<< Creator Userform >>>>>>>>>>>>>>>>>
 
 class User_RegistrationForm(forms.ModelForm):
@@ -36,13 +38,18 @@ class User_RegistrationForm(forms.ModelForm):
                 'name': forms.TextInput(attrs={'class': 'form-control item','placeholder':'Firstname'}),
                 'lastname': forms.TextInput(attrs={'class': 'form-control item','placeholder':'Lastname'}),
                 'nickname': forms.TextInput(attrs={'class': 'form-control item','placeholder':'Nickname'}),
-                'phone_number': forms.TextInput(attrs={'class': 'form-control item','placeholder':'phone number'}),
-                'email': forms.EmailInput(attrs={'class': 'form-control item','placeholder':'Email','id':'email'}),
+                'phone_number': forms.TextInput(attrs={'class': 'form-control item','placeholder':'Phone number','pattern': "^(0|\+91)?(?!6789)[6-9]\d{9}$",
+    'message': "Enter a valid phone number"}),
+ 
+
+                'email': forms.EmailInput(attrs={'class': 'form-control item','placeholder':'Email','id':'email','pattern':"[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"}),
                 # 'experience': forms.NumberInput(attrs={'class': 'form-control item','placeholder':'Experience'}),
                 'role': forms.HiddenInput(attrs={'value': 'PREFIX_VALUE','id': 'role-field'}),
                 # 'profileimage' : forms.FileField()
 
                 }
+            
+          
             
         def __init__(self, *args, **kwargs):
             super().__init__(*args, **kwargs)
