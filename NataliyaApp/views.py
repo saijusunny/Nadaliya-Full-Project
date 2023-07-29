@@ -265,3 +265,53 @@ def category_items(request, category):
         "items":items
     }
     return render(request, 'user/category_items.html',context)
+
+def add_cart(request, id, category):
+    if request.session.has_key('userid'):
+        pass
+    else:
+        return redirect('/')
+    ids=request.session['userid']
+    usr=User_Registration.objects.get(id=ids)
+    
+    items=item.objects.get(id=id)
+    print(items.name)
+    if cart.objects.filter(user=usr,item=items).exists():
+        messages.error(request, 'This item is already in cart')
+        items=item.objects.filter(category_id=category)
+        usrd=Profile_User.objects.get(user=ids)
+        context={
+        'user':usrd,
+        "items":items
+        }
+   
+    else:
+        crt=cart()
+        crt.user=usr
+        crt.item=items
+        crt.save()
+        messages.error(request, 'This item is add to cart')
+        items=item.objects.filter(category_id=category)
+        usrd=Profile_User.objects.get(user=ids)
+        context={
+            'user':usrd,
+            "items":items
+        }
+    return render(request, 'user/category_items.html',context)
+    
+def cart_view(request):
+   
+    if request.session.has_key('userid'):
+        pass
+    else:
+        return redirect('/')
+    ids=request.session['userid']
+    usr=Profile_User.objects.get(user=ids)
+    carts=cart.objects.filter(user=ids)
+  
+    context={
+        "cart":carts,
+        'user':usr,
+        
+    }
+    return render(request, 'user/cart_display.html',context)

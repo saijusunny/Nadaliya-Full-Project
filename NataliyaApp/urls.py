@@ -22,6 +22,8 @@ urlpatterns = [
     path('index_user_confirmation/<int:user_id>/',views.index_user_confirmation,name='index_user_confirmation'),
     path('profile_user_creation/',views.profile_user_creation,name='profile_user_creation'),
     path('user_home/',views.user_home,name='user_home'),
-    path('category_items/<int:category>',views.category_items,name='category_items'),
+    path('category_items/<int:category>',views.category_items,name='category_items'),#--- Category item view template
+    path('add_cart/<int:id>/<int:category>',views.add_cart,name='add_cart'),
+    path('cart_view',views.cart_view,name='cart_view'),#-----------------------------Cart View Template
     
     ]

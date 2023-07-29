@@ -40,8 +40,6 @@ class Profile_User(models.Model):
     address =  models.TextField(blank=True,null=True)
     pro_pic = models.ImageField(upload_to='images/', default='static/images/default.png')
 
-
-    
     def __str__(self):
         return f"{self.firstname} {self.lastname}"
 
@@ -53,9 +51,14 @@ class item(models.Model):
     user = models.ForeignKey(User_Registration, on_delete=models.SET_NULL, null=True, blank=True)
     category= models.ForeignKey(category, on_delete=models.SET_NULL, null=True, blank=True)
     name = models.CharField(max_length=255,blank=True,null=True)
+    title_description = models.CharField(max_length=100,blank=True,null=True)
     description = models.CharField(max_length=255,blank=True,null=True)
     price = models.FloatField()
     rating = models.FloatField()
     buying_count = models.IntegerField()
     offer = models.FloatField()
     image = models.FileField(upload_to='images/items', default='static/images/default.png')
+
+class cart(models.Model):
+    user = models.ForeignKey(User_Registration, on_delete=models.SET_NULL, null=True, blank=True)
+    item = models.ForeignKey(item, on_delete=models.SET_NULL, null=True, blank=True)
