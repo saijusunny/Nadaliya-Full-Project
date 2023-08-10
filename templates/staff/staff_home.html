@@ -1,247 +1,282 @@
 {% extends 'staff/staff_base.html' %}
 {% load static %}
-
 {% block content %}
 
 <style>
-@keyframes example {
-        0%   { left:0px; top:0px;}
-  25%  {background-color:rgb(134, 134, 131); }
-
-}
-#coffee{
-    color: rgb(194, 127, 4);
-    border: 1px solid rgb(194, 127, 4);
-    margin-left: 30%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-}
-#coffee:hover{
-    color: white;
-    background-color: rgb(185, 123, 6);
-
-}
-
-#div1:hover {
-    position: relative;
-  animation-name: example;
-  animation-duration: 2s;
-}
-
-
-.card1{
-    width: 100%;
-    height: 250px;
-    padding: 2rem 1rem;
-    background: #fff;
-    position: relative;
-    box-shadow: 0px 7px 10px rgba(0,0,0,0.5);
-    transition: 0.5s ease-in-out;
-}
-.card1::before{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom,rgba(67, 82, 80, 0.5),rgb(39, 41, 22));
-    z-index: 2;
-    transition: 0.5s all;
-    opacity: 0;
-}
-.card1:hover::before{
-    opacity: 1;
-}
-.card1 img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top:0;
-    left: 0;
-}
-.card1 .info{
-    position: relative;
-    z-index: 3;
-    color: #fff;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: 0.5s all;
-
-}
-.card1:hover .info{
-    opacity: 1;
-    transform: translateY(0px);
-}
-
-
-
-
-
-/* .............. button........................ */
-.bt {
-  border-radius: 4px;
-  background-color: #dd9a08;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 28px;
-  padding: 10px;
-  width: 200px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-}
-
-.bt span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.bt span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.bt:hover span {
-  padding-right: 25px;
-}
-
-.bt:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-
-
-
-
-
-
-/* ..............images div.................... */
-.contain {
-  position: relative;
-  width: 100%;
-}
-
-.image {
-  display: block;
-  width: 100%;
-  height: 250px;
-}
-
-.overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #ba630083;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  -webkit-transform: scale(0);
-  -ms-transform: scale(0);
-  transform: scale(0);
-  -webkit-transition: .3s ease;
-  transition: .3s ease;
-}
-
-.contain:hover .overlay {
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
-}
-
-.text {
-  color: white;
-  font-size: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-
-
-
-.story {
-  /* width: 100px;
-  height: 100px;
-  background: red; */
-  transition: width 2s, height 2s, transform 2s;
-}
-
-.story:hover {
-  /* width: 300px;
-  height: 300px; */
-  transform: rotate(360deg);
-}
     
 
-    
+    .card {
+        background-color: transparent;
+        border: none;
+        margin: 10px;
+        
+    }
+
+    .container {
+        width: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        border: none;
+        flex-wrap: wrap;
+        max-width: 1000px;
+        margin-top: 100px; /* Add margin to the top */
+        margin-bottom: 10px; /* Add margin to the bottom */
+    }
+
+    .container .card {
+        position: relative;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center the content vertically */
+    }
+
+    .container .card .icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #f00;
+        transition: 0.7s;
+        z-index: 1;
+    }
+
+    .container .card:nth-child(1) .icon {
+        background: #e07768;
+    }
+
+    .container .card:nth-child(2) .icon {
+        background: #6eadd4;
+    }
+
+    .container .card:nth-child(3) .icon {
+        background: #4aada9;
+    }
+
+    .container .card .icon .fa {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 80px;
+        transition: 0.7s;
+        color: #fff;
+    }
+
+    .container .card .face {
+        width: 300px;
+        height: 200px;
+        transition: 0.5s;
+    }
+
+    .container .card .face.face1 {
+        position: relative;
+        background: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        transform: translateY(100px);
+    }
+
+    .container .card:hover .face.face1 {
+        background: #ff0057;
+        transform: translateY(0px);
+    }
+
+    .container .card .face.face1 .content {
+        opacity: 1;
+        transition: 0.5s;
+        text-align: center;
+    }
+
+    .container .card:hover .face.face1 .content {
+        opacity: 1;
+    }
+
+    .container .card .face.face1 .content img.banner, .container .card .face.face1 .content img.category {
+        max-width: 100px; /* Adjust the banner and category image size */
+        
+        
+    }
+    .content img.category{
+      width: 40px;
+      margin-top: 10%;
+    }
+    .content img.banner{
+      width: 40px;
+      margin-top: 10%;
+    }
+
+    .container .card .face.face1 .content h2 {
+        margin-top: 10px; /* Add margin to the top of the heading */
+        text-align: center;
+        color: #fff;
+        font-size: 24px;
+        color: #414141;
+        font-family: monospace;
+        letter-spacing: 5px;
+        text-shadow: 2px 2px 8px #000;
+    }
+
+    .container .card .face.face2 {
+        position: relative;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        box-sizing: border-box;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+        transform: translateY(-100px);
+    }
+
+    .container .card:hover .face.face2 {
+        transform: translateY(0);
+    }
+
+    .container .card .face.face2 .content p {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        color: #414141;
+    }
+
+    .container .card .face.face2 .content h3 {
+        margin: 0 0 10px 0;
+        padding: 0;
+        color: #fff;
+        font-size: 24px;
+        text-align: center;
+        color: #414141;
+    }
+
+    .container a {
+        text-decoration: none;
+        color: #414141;
+    }
 </style>
 
-
-<div class="row">
-  <div class="col-sm-12 col-lg-12 col-md-12">
-    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active " data-bs-interval="2000">
-          <div class="carousel-caption d-none d-md-block mb-5" >
-            <!-- <div class="p-4" style="background-color: rgba(32, 32, 32, 0.534);"> -->
-              <h1 class="mt-3" style="font-family:cursive;color: rgb(221, 145, 5);">Tasty And Delicious Food</h1>
-            <h3 class="pb-3" style="font-family: cursive;">CREAMY HOT AND READY TO SERVE.</h3>
-            <a href="" class="btn btn-light mb-5" ><b>Book a Table</b></a>
-              <a href="" class="btn btn-light mb-5" ><b>Order Now</b></a>
-            <!-- </div> -->
-              
-  
+<div class="container">
+    <div class="card"style="margin-top: -4rem;" >
+        <div class="face face1" >
+            <div class="content">
+                <div class="icon">
+                    <h2 class="text-light">BANNER MANAGEMENT</h2>
+                </div>
             </div>
-          <img src="https://www.myweeklypreview.com.au/wp-content/uploads/2019/07/CoverStory558-1.jpg"  class="d-block w-100" alt="...">
-          
         </div>
-        <div class="carousel-item" data-bs-interval="2000" >
-          <div class="carousel-caption d-none d-md-block mb-5 ">
-              <h1 style="font-family:cursive">Tasty And Delicious Food</h1>
-              <h5 style="color: rgb(248, 247, 244);font-family: cursive;">Some representative placeholder content for the first slide.</h5>
-              <a href="" class="btn btn-light mb-5" ><b>Book a Table</b></a>
-  
-          </div>
-          <img src="https://littlebsale.co.uk/wp-content/uploads/sites/153/2022/11/CoffeeEvent.jpg"  class="d-block w-100" alt="..." >
-        </div>
-        <div class="carousel-item" data-bs-interval="2000" >
-          <div class="carousel-caption d-none d-md-block mb-5">
-              <h1 style="font-family:cursive;color: #c08507;">Tasty And Delicious Food</h1>
-              <h5 style="font-family: cursive;color: white;">Some representative placeholder content for the first slide.</h5>
-              <a href="" class="btn btn-light mb-5" ><b>Book a Table</b></a>
-  
+        <div class="face face2" >
+            <div class="content">
+                <h3>
+                    {%if banner%}
+                    <a href="{% url 'edit_banner' banner.id %}" class=""><button type="button" class="btn btn-dark">Edit Banner</button></a>
+                    {%else%}
+                    <a href="{% url 'staff_upload_images' %}" class=""><button type="button" class="btn btn-dark">Add Banner</button></a>
+                    {%endif%}
+                </h3>
             </div>
-            <img src="https://asset.snoonu.com/test/headerimage_new/CmqwLBXVLd.jpg"  class="d-block w-100" alt="..." >
-  
         </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
-  
-  </div>
+    <div class="card" style="margin-top: -4rem;">
+        <div class="face face1">
+            <div class="content">
+                <div class="icon">
+                    <h2 class="text-light mt-2">PRODUCT MANAGEMENT</h2>
+                </div>
+            </div>
+        </div>
+        <div class="face face2">
+            <div class="content">
+                <h3>
+                  <a href="{% url 'new_module' %}" class="center-vertical"><button type="button" class="btn btn-dark center-vertical ">Add Product</button></a>
+                </h3>
+                <p>
+                  <a href="{% url 'staff_itemlist' %}" class="center-vertical"><button type="button" class="btn btn-dark center-vertical mt-2 mx-auto">Product List</button></a>
+              
+                </p>
+                </div>
+        </div>
+    </div>
+    
+    <div class="card" style="margin-top: -4rem;">
+        <div class="face face1" >
+            <div class="content">
+                <div class="icon" style="background-color: #CB7BC5 ;">
+                    <h2 class="text-light mt-2">CATEGORY MANAGEMENT</h2>
+                </div>
+            </div>
+        </div>
+        <div class="face face2">
+            <div class="content">
+                <h3>
+                  <a href="{% url 'staff_category'%}" class=""><button type="button" class="btn btn-dark">Add Category</button></a>                
+                </h3>
+                <p>
+                    <a href="{% url 'staff_categorylist' %}" class="center-vertical"><button type="button" class="btn btn-dark center-vertical mt-2 mx-auto">Category List</button></a>
+                
+                  </p>
+            </div>
+        </div>
+    </div>
+    <div class="card" style="margin-top: -4rem;">
+        <div class="face face1" >
+            <div class="content">
+                <div class="icon" style="background-color: #6C9666 ;">
+                    <h2 class="text-light mt-2">Orders</h2>
+                </div>
+            </div>
+        </div>
+        <div class="face face2">
+            <div class="content">
+                <h3>
+                  <a href="{% url 'staff_view_order'%}" class=""><button type="button" class="btn btn-dark">View Orders</button></a>                
+                </h3>
+                
+            </div>
+        </div>
+    </div>
+    <div class="card" style="margin-top: -4rem;">
+        <div class="face face1" >
+            <div class="content">
+                <div class="icon" style="background-color: #C70039;">
+                    <h2 class="text-light mt-2">User Management</h2>
+                </div>
+            </div>
+        </div>
+        <div class="face face2">
+            <div class="content">
+                <h3>
+                  <a href="{% url 'staff_user_list_view'%}" class=""><button type="button" class="btn btn-dark">View User</button></a>                
+                </h3>
+                
+            </div>
+        </div>
+    </div>
+    <div class="card" style="margin-top: -4rem;">
+        <div class="face face1" >
+            <div class="content">
+                <div class="icon" style="background-color: #FFC300;">
+                    <h2 class="text-light mt-3">OFFER <br>ZONE</h2>
+                </div>
+            </div>
+        </div>
+        <div class="face face2">
+            <div class="content">
+                <h3>
+                  <a href="{% url 'staff_new_offer' %}" class=""><button type="button" class="btn btn-dark">Add Offer</button></a>                
+                </h3>
+                <h3>
+                    <a href="{% url 'staffofferlist' %}" class=""><button type="button" class="btn btn-dark">Offer List</button></a>                </h3>
+
+                </h3>
+            </div>
+        </div>
+    </div>
 </div>
+
+
 
 {% endblock %}
