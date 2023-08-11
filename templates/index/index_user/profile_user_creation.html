@@ -22,12 +22,12 @@
       {% csrf_token %}
       <div class="row mt-4 ">
        <div class="col-sm-12" style="text-align: center;">
-         <img src="https://www.malieakal.in/wp-content/uploads/2022/11/30056-png-768x149.png" class="w-25" alt="">
+         <img src="{% static 'images\logo\nataliya logo base.png'%}" class="w-25" alt="">
        </div>
      </div> 
      <div class="row">
        <div class="col-sm-12 mt-4" style="text-align: center;">
-         <h4 class="text-danger">Welcome Back</h4>
+         <h4 class="text-dark" style="color: #042454;">Welcome Back</h4>
        </div>
      </div>
    <div class="form">
@@ -83,7 +83,7 @@
        </div>
         
      <div class="btn-container" style="text-align: center;">
-       <input id="submit" class="btn btn-danger mt-4 form-control w-50" type="submit" name="submit" value="Submit" />
+       <input id="submit" class="btn btn-dark mt-4 form-control w-50" type="submit" name="submit" value="Submit" style="background-color: #042454;"/>
      </div>
    </div>
  </form>

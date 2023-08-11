@@ -21,7 +21,7 @@ urlpatterns = [
     path('upload_images',views.upload_images,name='upload_images'),
     path('add_staff/', views.add_staff, name='add_staff'),
     path('admin_itemlist/',views.admin_itemlist,name='admin_itemlist'),
-    path('stafflist/', views.staff_list_view, name='staff_list'),
+    path('staff_all_list/', views.staff_all_list, name='staff_all_list'),
     path('admin_category/', views.admin_category, name='admin_category'),
     path('new_form/', views.new_form, name='new_form'),
     path('staff_management/', views.staff_management, name='staff_management'), 
@@ -79,7 +79,7 @@ urlpatterns = [
     path('staff_delete_user/<int:id>', views.staff_delete_user, name='staff_delete_user'),
 
 
-    path('edit_banner/<int:id>', views.edit_banner, name='edit_banner'),
+    path('staff_edit_banner/<int:id>', views.staff_edit_banner, name='staff_edit_banner'),
 
     
     ############################################################ <<<<<<<<< User MODULE >>>>>>>>>>>>>>>>>
@@ -107,5 +107,6 @@ urlpatterns = [
     path('search_feature',views.search_feature,name='search_feature'),
     path('index_search_feature',views.index_search_feature,name='index_search_feature'),
 
-    
+    path('user_profile',views.user_profile,name='user_profile'),
+    path('edit_user_profile/<int:id>',views.edit_user_profile,name='edit_user_profile'), 
     ]

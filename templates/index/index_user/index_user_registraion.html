@@ -143,11 +143,11 @@ input{
     <div class="registration-form">        
             <form method="post" action="{% url 'user_registration' %}">
                 {% csrf_token %}
-                <div class="row mt-4 ">
+                <div class="row mt-1 ">
                     <div class="col-sm-12" style="text-align: center;">
-                      <img src="https://www.malieakal.in/wp-content/uploads/2022/11/30056-png-768x149.png" class="w-50" alt="">
+                      <img src="{% static 'images\logo\nataliya logo base.png'%}" class="w-50" alt="">
                     </div>
-                  </div> 
+                  </div>    
                   <div class="row">
                     <div class="col-sm-12 mt-4" style="text-align: center;">
                       <h4 class="text-dark">Create Account</h4>
@@ -185,7 +185,7 @@ input{
                 <div class="form-group fontuser">
                     
                     <div class="form-group fontuser demo1">
-                        {{form.email}}  
+                        {{form.email}} 
                         {{form.otp}} 
                    
                     </div> 
@@ -197,7 +197,7 @@ input{
 
                 <div class="form-group">
                     <center>
-                    <button type="submit" style="border-radius: 10px;padding:10px ;  opacity: 0.9;; color: #fff; background-color: #142023;;">Create Account</button> 
+                    <button type="submit" style="border-radius: 10px;padding:10px ;  opacity: 0.9;; color: #fff; background-color:#042454">Create Account</button> 
                     <center>
         
                 </div>

@@ -1,7 +1,8 @@
-{% extends 'admin/admin_base.html' %}
+{% extends 'staff/staff_base.html' %}
 {% load static %}
 {% block content %}
 <style>
+
 
     /* Your existing CSS styles here */
   
@@ -88,9 +89,9 @@
  
   </style>
 <section class="form-container mt-5 pt-5" style="box-shadow: 20px 20px 10px #9e7377;">
-  <form action = "{% url 'admin_edit_item' item_instance.id %}" method = 'POST' enctype="multipart/form-data">
+  <form action = "{% url 'new_module_edit' item_instance.id %}" method = 'POST' enctype="multipart/form-data">
      {% csrf_token %}
-  <h1 class="form-header text-uppercase text-center"style="font-weight:bold; color:#d22b2c;">Edit Item </h1>
+  <h1 class="form-header text-uppercase text-center"style="font-weight:bold; color:#d22b2c; font-family:bold; font-size:34px; ">Item </h1>
 
 
   <div class="form">
@@ -119,13 +120,12 @@
       <input id="price" type="number" name="price" value="{{ item_instance.price }}" required  class="form-control"/>
     </div>
 
-    
+    <div class="form-item animate-fade-in">
+      <label for="offer_price">Offer Percentage</label>
+      <input id="offer_price" type="number" name="offer_percentage" value="{{ item_instance.offer }} " required  class="form-control"/>
+    </div>
 
     <div class="form-item form-item1">
-      <label for="offer_price">Offer Percentage</label>
-      <input id="offer_price" type="number" name="offer_percentage" value="{{ item_instance.offer }}" required  class="form-control"/>
-    </div>
-    <div class="form-item animate-fade-in">
       <label for="offer_price">Offer Price</label>
       <input id="offer_price" type="number" name="offer_price" value="{{ item_instance.offer_price }}" required  class="form-control"/>
     </div>
@@ -133,7 +133,7 @@
 
   <div class="form-item  form-item1">
     <label for="image">Upload Image( resolution : W-1600px h-1600px )</label>
-    <input type="file" class="form-control-file" id="image" name="image" accept="image/*">
+    <input type="file" class="form-control-file" id="image" name="image" accept="image/*" required>
     <span id="image-size-info"></span>
     
   </div>
@@ -160,7 +160,7 @@
 
   <div class="textarea-div form-item9">
     <label for="title_description">Title Description</label>
-    <textarea id="title_description" type="text" name="title_description" placeholder="Title Description" maxlength="100" required>{{ item_instance.title_description }}</textarea>
+    <textarea id="title_description" type="text" name="title_description" maxlength="100" placeholder="Title Description" required>{{ item_instance.title_description }}</textarea>
   </div>
 
   

@@ -172,7 +172,7 @@
             <div class="content">
                 <h3>
                     {%if banner%}
-                    <a href="{% url 'edit_banner' banner.id %}" class=""><button type="button" class="btn btn-dark">Edit Banner</button></a>
+                    <a href="{% url 'staff_edit_banner' banner.id %}" class=""><button type="button" class="btn btn-dark">Edit Banner</button></a>
                     {%else%}
                     <a href="{% url 'staff_upload_images' %}" class=""><button type="button" class="btn btn-dark">Add Banner</button></a>
                     {%endif%}
