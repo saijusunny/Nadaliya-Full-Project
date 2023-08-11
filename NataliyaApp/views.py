@@ -1075,8 +1075,8 @@ def user_registration(request):
             udr=User_Registration.objects.get(id=user_id)
             digits = string.digits
             otp = ''.join(random.choices(digits, k=6))
-            subject = "Greetings From Malieakal"
-            message =f'Hi {email},\nYour Email Verification OTP is: {otp}'
+            subject = "Greetings From Nataliya"
+            message =f'Hi {email},\nYour Email Verification OTP is: {otp},\n Thank You \n Nataliya Team'
             udr.otp=otp
             udr.save()
             recipient = form.cleaned_data['email']    #  recipient =request.POST["inputTagName"]
@@ -1496,7 +1496,7 @@ def send_receipt(request):
      
         tot="\n\nTotal Amount : "+str(total_amount)
         
-        message = 'Greetings from Malieakal\n\nReciept,\n\nName :'+str(usr.name)+str(usr.lastname)+'\nAddress :'+str(pro.address)+'\n\n'+str(lst)+str(tot)
+        message = 'Greetings from Nataliya\n\nReciept,\n\nName :'+str(usr.name)+str(usr.lastname)+'\nAddress :'+str(pro.address)+'\n\n'+str(lst)+str(tot)+'\n Thank You \n Nataliya Team'
       
         pywhatkit.sendwhatmsg_instantly(
             phone_no="+918848937577", 
