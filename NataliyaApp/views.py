@@ -274,7 +274,7 @@ def admin_add_item(request):
     item_categories = category.objects.all()
     under_choices = (
     ("Ice Cream", "Ice Cream"),
-    ("Wrapp", "Wrapp"),
+    ("Wrap", "Wrap"),
    
     )
     if request.method == 'POST':
@@ -322,7 +322,7 @@ def admin_edit_item(request, item_id):
     item_categories = category.objects.all()
     under_choices = (
         ("Ice Cream", "Ice Cream"),
-        ("Wrapp", "Wrapp"),
+        ("Wrap", "Wrap"),
     )
 
     context = {
@@ -362,7 +362,7 @@ def admin_itemlist(request):
     item_categories = category.objects.all()
     under_choices = (
     ("Ice Cream", "Ice Cream"),
-    ("Wrapp", "Wrapp"),
+    ("Wrap", "Wrap"),
     )
     items = item.objects.all()
     return render(request, 'admin/admin_itemlist.html',{'items':items,'item_categories':item_categories,
@@ -635,7 +635,7 @@ def new_module(request):
     item_categories = category.objects.all()
     under_choices = (
     ("Ice Cream", "Ice Cream"),
-    ("Wrapp", "Wrapp"),
+    ("Wrap", "Wrap"),
     )
     if request.method == 'POST':
         form_data = request.POST.dict()
@@ -683,7 +683,7 @@ def staff_itemlist(request):
     item_categories = category.objects.all()
     under_choices = (
     ("Ice Cream", "Ice Cream"),
-    ("Wrapp", "Wrapp"),
+    ("Wrap", "Wrap"),
     )
     items = item.objects.all()
     return render(request, 'staff/staff_itemlist.html',{'items':items,'item_categories':item_categories,
@@ -697,7 +697,7 @@ def staff_itemedit(request, item_id):
     item_categories = category.objects.all()
     under_choices = (
         ("Ice Cream", "Ice Cream"),
-        ("Wrapp", "Wrapp"),
+        ("Wrap", "Wrap"),
     )
 
     context = {
@@ -1239,8 +1239,8 @@ def under_items(request, category):
     crt_cnt=cart.objects.filter(user=ids).count()
     if category=="ice_cream":
         items=item.objects.filter(under_category="Ice Cream")
-    elif category=="wrapp":
-        items=item.objects.filter(under_category="Wrapp")
+    elif category=="wrap":
+        items=item.objects.filter(under_category="Wrap")
   
     else:
         items=item.objects.all()

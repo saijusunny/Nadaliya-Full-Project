@@ -9,7 +9,7 @@ role = (
 )
 under = (
     ("Ice Cream", "Ice Cream"),
-    ("Wrapp", "Wrapp"),
+    ("Wrap", "Wrap"),
     
 )
 class User_Registration(models.Model):
