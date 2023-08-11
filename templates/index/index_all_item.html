@@ -19,7 +19,7 @@
             {% if items%}
               {% for item in items%}
               <div class="col-md-3 col-sm-12 col-lg-3 mt-2 outers"  style="margin: 0 auto;">
-                <div class="card" style="height: auto;text-align: center;">
+                <div class="card" style="height: auto;text-align: center;background-color: #FBE7C6">
                           {% if item.image %}
                         
                           <img class="card-img-top w-100"  src="{{ item.image.url }}">
@@ -47,15 +47,15 @@
                         <div class="row" style="text-align: center;">
                          
                           <div class="col-sm-6 mt-3   ">
-                              <a href="{% url 'login_main'%}"><div class="btn btn-dark w-100" style="height:40px; color: #042454; background-color: white;border: 2px solid #042454;">
-                                  View
-                              </div></a>
-                          </div>
-                          <div class="col-sm-6 mt-3">
-                              <a href="{% url 'login_main'%}"><div class="btn btn-dark  w-100" style="height:40px;color: rgb(255, 255, 255); background-color: #042454;">
-                                  Add to Cart
-                              </div></a>
-                          </div>
+                            <a href="{% url 'login_main'%}"><div class="btn btn-dark w-100" style="height:40px; color: #042454; background-color: #FBE7C6;border: 2px solid #042454;">
+                                View
+                            </div></a>
+                        </div>
+                        <div class="col-sm-6 mt-3">
+                            <a href="{% url 'login_main'%}"><div class="btn btn-dark  w-100" style="height:40px;color: rgb(255, 255, 255); background-color: #042454;">
+                                Add to Cart
+                            </div></a>
+                        </div>
                         
 
                         </div>

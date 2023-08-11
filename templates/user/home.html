@@ -15,8 +15,11 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
-
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 <style>
+  body{
+    font-family:Montserrat;
+  }
     
   #owl_rev * {
     margin: 0;
@@ -29,7 +32,7 @@
   }
   
   #owl_rev body {
-    font-family: 'Roboto Slab', serif;
+    font-family: Montserrat;
     font-size: 15px;
     line-height: 1.67;
     color: #444;
@@ -323,7 +326,7 @@
           font-size: 18px;
           font-weight: 500;
           margin-bottom: 5px;
-          font-family: "Poppins", sans-serif;
+          font-family: Montserrat;
           color: white;
       }
   
@@ -450,7 +453,7 @@
           letter-spacing: 2px;
           text-transform: uppercase;
           color: #aaaaaa;
-          font-family: "Poppins", sans-serif;
+          font-family: Montserrat;
       }
   
       .section-title h2::after {
@@ -467,7 +470,7 @@
           margin: 0;
           font-size: 36px;
           font-weight: 700;
-          font-family: "Playfair Display", serif;
+          font-family:Montserrat;
           color: black;
       }
     .slick-slide {
@@ -585,9 +588,7 @@
   .slick-arrow.slick-hidden {
       display: none;
   }
-    *{
-      font-family:sans-serif;
-    }
+    
   #why_malieakal{
       margin-top: 7%;
     }
@@ -698,27 +699,23 @@
 
 <div class="container-fluid pl-5 pr-5 ">
   <div id="about" data-aos="fade-up">
-    <div class="row" >
+    <div class="row"  style="margin-top: 2rem;">
       <div class="col-sm-12 col-md-6 col-lg-6" >
-        <img src="{% static 'images\store-2.webp' %}" class="w-100" style="border-radius: 20px;" alt="">
+        <img src="{% static 'home\Group 322.png' %}" class="w-100" style="border-radius: 20px;" alt="">
       </div>
       <div class="col-sm-12 col-md-6 col-lg-6">
 
         <div class="row" id="why_malieakal"> 
-          <div class="col-sm-12" style="text-align: left;">
-            <h1>Welcome to Nataliya Ice Creams</h1>
+          <div class="col-sm-12 mt-1" style="text-align: left;">
+            <h1 style="color: #0F2A58; font-weight: bold;">About Us</h1>
           </div>
         </div>
         <div class="row">
           <div class="col-sm-12 mt-1" style=" text-align: justify;">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto nulla alias eveniet, atque, pariatur veritatis eos nemo perferendis reiciendis maxime laudantium inventore error. Voluptates provident aperiam architecto. Eius, ut suscipit!atque, pariatur veritatis eos nemo perferendis reiciendis maxime laudantium inventore error.d</p>
-            <p onclick="more_vie()" style=" margin-top: -1rem; color: #042454;">Read more...</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto nulla alias eveniet, atque, pariatur veritatis eos nemo perferendis reiciendis maxime laudantium inventore error. Voluptates provident aperiam architecto. Eius, ut suscipit!atque, pariatur veritatis eos nemo perferendis reiciendis maxime laudantium inventore error.d
             
-            <section id="more" style="display: none;">
-              <h3>25000 Sqft 5 Storied State of the Art</h3>
-              <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima ipsam asperiores rem totam earum veritatis cum fugit non hic atque ipsa, architecto optio iure quo tempore reiciendis eaque eligendi. Eos.</p>
-            </section>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima ipsam asperiores rem totam earum veritatis cum fugit non hic atque ipsa, architecto optio iure quo tempore reiciendis eaque eligendi. Eos.</p>
+          
 
           </div>
           
@@ -728,94 +725,26 @@
   </div>
 
 
-  <div class="row">
-    <div class="row" style="margin-top: 2rem;">
-      <div class="col-sm-12 col-md-12 col-lg-12" style="text-align: center; ">
-        <h2 style="font-weight: bold;">Our Service</h2>
-      </div>
-    </div>  
-      
-      <div class="owl-carousel owl-theme owl_views">
-        
-        <div class="item mb-4 ">
-          <div class="card border-0 pt-3" style="height: 15rem; background-color: #FBE7C6;; box-shadow: 5px 10px 20px 0px #bebebe48;" >
-            <img src="https://www.malieakal.in/wp-content/uploads/2021/11/Layer-1.png" alt="{{i.category_name}}" class="card-img-top w-25"  style="margin-left: 7rem;">
-            <div class="card-body" style="text-align: center;">
-              <h6 alt="{{i.category_name}}" style="font-weight: bolder;font-size: 18px;">Incomparable Before and after sales Service</h6>
-              
-              <p>We are taking utmost Care & Priority for Providing the Incomparable Before & After Sales service.</p>
-              
-              
-              
-            </div>
-          </div>
-        </div>
-
-        <div class="item mb-4">
-          <div class="card border-0 pt-3" style="height: 15rem; background-color: #FBE7C6;box-shadow: 5px 10px 20px 0px #bebebe48;  ">
-            <img src="https://www.malieakal.in/wp-content/uploads/2021/11/emi.png" alt="{{i.category_name}}" class="card-img-top w-25"  style="margin-left: 7rem;">
-            <div class="card-body" style="text-align: center;">
-              <h6 alt="{{i.category_name}}" style="font-weight: bolder;font-size: 18px;">Easy EMI</h6>
-          
-              <p>An array of Financial Services are Provided by leading Financial institutions such as BFL, HDFC, HDB, PINE LABS etc.</p>
-              
-              
-            </div>
-          </div>
-        </div>
-
-        <div class="item mb-4">
-          <div class="card border-0 pt-3" style="height: 15rem; background-color: #FBE7C6;box-shadow: 5px 10px 20px 0px #bebebe48;  ">
-            <img src="https://www.malieakal.in/wp-content/uploads/2021/11/delivery.png" alt="{{i.category_name}}" class="card-img-top w-25"  style="margin-left: 7rem;">
-            <div class="card-body" style="text-align: center;">
-              <h6 alt="{{i.category_name}}" style="font-weight: bolder;font-size: 18px;">Fast Home Delivery</h6>
-             
-              <p>Our Professionally Manged Logistics & Supply Chain Department help us to Execute the Supply & Deliveries.</p>
-              
-              
-              
-            </div>
-          </div>
-        </div>
-
-        <div class="item mb-4">
-          <div class="card border-0 pt-3" style="height: 15rem; background-color: #FBE7C6;box-shadow: 5px 10px 20px 0px #bebebe48;">
-            <img src="https://www.malieakal.in/wp-content/uploads/2021/11/digi.png" alt="{{i.category_name}}" class="card-img-top w-25" style="margin-left: 7rem;">
-            <div class="card-body" style="text-align: center;">
-              <h6 alt="{{i.category_name}}" style="font-weight: bolder;font-size: 18px;">DIGI Card</h6>
-              
-              <p>We are providing the DIGI CARD – A digital card to incorporate all the information about the customer's valued patronage with us. </p>
-              
-              
-              
-            </div>
-          </div>
-        </div>
-        
-        <!--  -->  
-      </div>
-      
-    
-  </div>
+  
 
   <div id="product" data-aos="fade-up">
 
-    <div class="row" style="margin-top: 1rem;">
+    <div class="row" style="margin-top: 6rem;">
       <div class="col-sm-12 col-md-12 col-lg-12" style="text-align: center; ">
-        <h2 style="font-weight: bold;">Our Products</h2>
+        <h2 style="font-weight: bold;">Preferred Category</h2>
       </div>
     </div>    
     <section id="pro" >
-      <div class=" " data-aos="fade-up">
-        <div class="row g-4 py-1">
-          <div class="owl-carousel owl-theme owl_views" id="carouselExampleControlsSmallScreen">
+      <div class="mt-5" data-aos="fade-up">
+        <div class="row g-4 py-1" >
+          <div class="owl-carousel owl-theme owl_views" id="carouselExampleControlsSmallScreen" >
             {% for i in cat%}
-            <a href="{% url 'category_items' i.id%}" class="stretched-link">
+            <a href="{% url 'category_items' i.id%}" class="stretched-link" >
             <div class="item mb-4">
               <div class="card border-0" style="box-shadow: 5px 10px 20px 0px #bebebe48;background-color: #FBE7C6">
                 <img src="{{i.image.url}}" alt="{{i.category_name}}" class="card-img-top">
                 <div class="card-body">
-                  <h6 alt="{{i.category_name}}" style="font-weight: bolder;font-size: 18px;text-align: center;">{{i.category_name}}</h6>
+                  <h6 alt="{{i.category_name}}" style="font-size: 28px;text-align: center;">{{i.category_name}}</h6>
                 </div>
               </div>
             </div>
@@ -836,24 +765,24 @@
 
   <div id="offer" data-aos="fade-up">
 
-    <div class="row mt-3" >
+    <div class="row" style="margin-top: 7rem">
       <div class="col-sm-12 col-md-12 col-lg-12" style="text-align: center; font-weight: bolder;">
         <h2 style="font-weight: bold;">Offer Zone</h2>
       </div>
     </div>
 
     <div class=" " data-aos="fade-up">
-      <div class="row g-4 py-1">
+      <div class="row" style="margin-top: 2rem">
         <div class="owl-carousel owl-theme owl_views_offer">
           {% for item in offer%}
          
           <div class="item mb-4">
-            <div class="card border-0 " style="box-shadow: 5px 10px 20px 0px #bebebe48; height: 26rem;background-color: #FBE7C6">
+            <div class="card border-0 " style="box-shadow: 5px 10px 20px 0px #bebebe48; height: 26rem;background-color: #FBE7C6 ">
               <img src="{{ item.image.url }}" alt="" class="card-img-top">
               <div class="card-body">
                 <h5 class="card-title" style="text-align: left; font-weight: bold;">{{ item.title }}</h5>
                 
-                <h5 class="card-title" style="text-align: left;"><span style="font-weight: bolder; font-size: 18px;">₹{{item.offer_price}}</span> <span disabled style="font-size: 16px;"><strike>₹{{item.price}}</strike></span> <span style="background-color: green;color: rgb(255, 255, 255);font-size: 16px; border-radius: 5px; padding: 5px 10px 5px 10px;">{{item.offer}}% off</span></h5>
+                <h5 class="card-title" style="text-align: left;"><span style="font-weight: bolder; font-size: 18px;color: red;">₹{{item.offer_price}}</span> <span disabled style="font-size: 16px;"><strike>₹{{item.price}}</strike></span> <span style="background-color: green;color: rgb(255, 255, 255);font-size: 16px; border-radius: 5px; padding: 5px 10px 5px 10px;">{{item.offer}}% off</span></h5>
               </div>
             </div>
           </div>
@@ -867,30 +796,32 @@
   </div>
 
   <div id="trending" data-aos="fade-up" >
-    <div class="row mt-4" >
+    <div class="row" style="margin-top: 7rem" >
       <div class="col-sm-12 col-md-12 col-lg-12" style="text-align: center; font-weight: bolder;">
         <h2 style="font-weight: bold;">Trending Product</h2>
       </div>
     </div>
 
-    <div class="row">
+    <div class="row" style="margin-top: 2rem">
       
       <div class="owl-carousel owl-theme owl_views">
         {% for i in item_det%}
         <div class="item mb-4">
-          <div class="card border-0"  style="box-shadow: 5px 10px 20px 0px #bebebe48; height:35rem;background-color: #FBE7C6">
+          <div class="card border-0"  style="box-shadow: 5px 10px 20px 0px #bebebe48; height:600px;background-color: #FBE7C6">
             <img src="{{i.image.url}}" alt="{{i.category_name}}" class="card-img-top">
             <div class="card-body">
-              <h6 alt="{{i.category_name}}" style="font-weight: bolder;font-size: 18px;">{{i.name}}</h6>
-              <p ><span style="font-weight: bolder; font-size: 18px;">₹{{i.offer_price}}</span> <span disabled style="font-size: 16px;"><strike>₹{{i.price}}</strike></span> <span style="color: green;font-size: 14px;">{{i.offer}}%  off</span></p>
+              <h6 alt="{{i.category_name}}" style="font-weight: bolder;font-size: 28px;">{{i.name}}</h6>
+              <p ><span style="font-weight: bolder; font-size: 24px; color: red;">₹{{i.offer_price}}</span> <span disabled style="font-size: 16px;"><strike>₹{{i.price}}</strike></span> <span style="color: green;font-size: 14px;">{{i.offer}}%  off</span></p>
               <p>{{i.title_description  }}</p>
               <div class="row">
-                <div class="col-sm-6 mt-2">
-                  <a href="{% url 'product_view' i.id%}" class="btn btn-dark w-100" style="height:40px; color: #042454; background-color: white;border: 2px solid #042454;">View</a>
-                </div>
-                <div class="col-sm-6 mt-2">
+                <div class="col-sm-12 mt-2" style="background-color: #083561;">
+                  <a href="{% url 'all_items_add_cart' i.id i.category_id%}"><button style="height:80px; color: white; background-color: #083561; border: none;  font-size: 28px;" class=" w-100">
+                    Add To Cart
+                  </button></a>
+                  
+                <!-- <div class="col-sm-12 mt-2">
                   <a href="{% url 'all_items_add_cart' i.id i.category_id%}" class="btn btn-dark w-100" style="height:40px;color: rgb(255, 255, 255); background-color: #042454;">Add to Cart</a>
-                </div>
+                </div> -->
               </div>
               
               
@@ -902,11 +833,11 @@
       </div>
       
     </div>
-    <div class="row  text-center">
+    <div class="row  text-center mt-4 mb-5">
       <div class="col-sm-12">
         <a href="{% url 'all_items'%}">
-          <div class="btn btn-outline-danger  ml-1"style="height: 40px;color: #042454; background-color: white;border: 2px solid #042454;">
-            <i class="fa-solid fa-plus"></i>Explore More
+          <div class="btn btn-outline-danger ml-5 "style="height: 80px;color: #042454; background-color: white;border: 2px solid #042454; font-size:20px; padding-top:20px; padding-left:32px; padding-right:32px" >
+            <i class="fa-solid fa-plus"></i>&nbsp;Explore More
         </div>
       </a>
       </div>
@@ -914,129 +845,7 @@
   </div> 
 
 
-  <section id="owl_rev">
-    <div class="customer-feedback mt-5 pt-5">
-      <div class=" text-center">
-        <div class="row">
-          <div class="col-sm-offset-2 col-sm-8" style="margin: auto;">
-            <div>
-              <h2 class="section-title">What Clients Say</h2>
-            </div>
-          </div><!-- /End col -->
-        </div><!-- /End row -->
-        <a href="https://www.google.com/maps/place/Malieakal+Electronics+(Kollam)/@8.8912409,76.3025057,11z/data=!4m9!1m2!2m1!1smalieakal+electronics!3m5!1s0x3b05fc4fc5db81cd:0x14490dc4c5866323!8m2!3d8.8912409!4d76.5826571!15sChVtYWxpZWFrYWwgZWxlY3Ryb25pY3MiA4gBAVoXIhVtYWxpZWFrYWwgZWxlY3Ryb25pY3OSARFlbGVjdHJvbmljc19zdG9yZQ" class="stretched-link" style="text-decoration: none; color: black;">
   
-        <div class="row">
-          <div class="col-md-8  col-sm-12" style="margin: 0 auto;">
-            <div class="owl-carousel feedback-slider">
-  
-              <!-- slider item -->
-              <div class="feedback-slider-item">
-                <img src="https://lh3.googleusercontent.com/a/ALm5wu2oof0rA06j6dAMLxEj2RHgbn2JUup-XDgcffwm=s120-c-c-rp-w64-h64-mo-br100" class="center-block img-circle" alt="Customer Feedback">
-                <h3 class="customer-name">
-                  Binu Binu</h3>
-                <p>Good service support Super world cup offer purchased by sony led thanks vineesh for your support</p>
-                <span class="light-bg customer-rating" data-rating="5">
-                  5
-                  <i class="fa fa-star"></i>
-                </span>
-              </div>
-              <!-- /slider item -->
-  
-              <!-- slider item -->
-              <div class="feedback-slider-item">
-                <img src="https://lh3.googleusercontent.com/a/ALm5wu2Gko302GIO4_aYxjrgWEjbZLe_8WqGV-r9g7Bj=s120-c-c-rp-w64-h64-mo-br100" class="center-block img-circle" alt="Customer Feedback">
-                <h3 class="customer-name">Jerald Jerald</h3>
-                <p>I purchased sony led from malieakal santhana, muneer good dealings</p>
-                <span class="light-bg customer-rating" data-rating="4">
-                  5
-                  <i class="fa fa-star"></i>
-                </span>
-              </div>
-              <!-- /slider item -->
-  
-              <!-- slider item -->
-              <div class="feedback-slider-item">
-                <img src="https://lh3.googleusercontent.com/a-/ACNPEu-YDNCkDSlVepvS2wxjRNhepF2-itpgeFOBUrgZ=s120-c-c-rp-w64-h64-mo-br100" class="center-block img-circle" alt="Customer Feedback">
-                <h3 class="customer-name">Sofiya Sajan</h3>
-                <p>Purchased a samsung led tv thanks to Vishnu to support us</p>
-                <span class="light-bg customer-rating" data-rating="5">
-                  5
-                  <i class="fa fa-star"></i>
-                </span>
-              </div>
-
-              <div class="feedback-slider-item">
-                <img src="https://lh3.googleusercontent.com/a/ALm5wu24RYh2rL-zYDqjXp2he7WqYxiXLcf3UHzoeCpz=s120-c-c-rp-w64-h64-mo-br100" class="center-block img-circle" alt="Customer Feedback">
-                <h3 class="customer-name">
-                  Rincy Roshni134</h3>
-                <p>Always my shop in malieakal, thanks mr saheer,</p>
-                <span class="light-bg customer-rating" data-rating="5">
-                  5
-                  <i class="fa fa-star"></i>
-                </span>
-              </div>
-
-              <div class="feedback-slider-item">
-                <img src="https://lh3.googleusercontent.com/a-/ACNPEu8EW_2GQ6zxwm3O1k_r6K4BCDE6DEJV4w9ThXe-jQ=s120-c-c-rp-w64-h64-mo-br100" class="center-block img-circle" alt="Customer Feedback">
-                <h3 class="customer-name">
-                  Noble Antony Norbert </h3>
-                <p>It's a good shop furniture and home appliances</p>
-                <span class="light-bg customer-rating" data-rating="5">
-                  5
-                  <i class="fa fa-star"></i>
-                </span>
-              </div>
-
-              <div class="feedback-slider-item">
-                <img src="https://lh3.googleusercontent.com/a-/ACNPEu_eiOYNSPueIOHYClC-2mxejBhISH1uxqJFv6l-=s120-c-c-rp-w64-h64-mo-br100" class="center-block img-circle" alt="Customer Feedback">
-                <h3 class="customer-name">
-                  Sreejith S</h3>
-                <p>Purchased a led tv thanks to Vishnu for good service</p>
-                <span class="light-bg customer-rating" data-rating="5">
-                  5
-                  <i class="fa fa-star"></i>
-                </span>
-              </div>
-              <!-- /slider item -->
-              
-            </div><!-- /End feedback-slider -->
-  
-            
-            <!-- /side thumbnail -->
-  
-          </div><!-- /End col -->
-        </div><!-- /End row -->
-        </a>
-      </div><!-- /End container -->
-    </div><!-- /End customer-feedback -->
-
-    
-  </section>
-
-  
-
-  
-  <div class="row mt-4 pt-4" >
-    <div class="col-sm-12 col-md-12 col-lg-12" style="text-align: center;">
-      <h2 style="font-weight: bold;">Our Brands</h2>
-    </div>
-  </div>  
-  <section id="backers" class="backers" >
-    <div class="" data-aos="fade-up">
-        <section class="customer-logos slider">
-            <div class="slide"><img src="{% static 'images\1-1-150x150.webp'%}"></div>
-            <div class="slide"><img src="{% static 'images\6-1-150x150.webp'%}"></div>
-            <div class="slide"><img src="{% static 'images\6-150x150.webp'%}"></div>
-            <div class="slide"><img src="{% static 'images\7-150x150.webp'%}"></div>
-            <div class="slide"><img src="{% static 'images\8-150x150.webp'%}"></div>
-            <div class="slide"><img src="{% static 'images\6-150x150.webp'%}"></div>
-            <div class="slide"><img src="{% static 'images\7-150x150.webp'%}"></div>
-            <div class="slide"><img src="{% static 'images\8-150x150.webp'%}"></div>
-         </section>
-     
-    </div>
-</section>
 
 
 
@@ -1171,7 +980,7 @@
 
   $('.owl_views_offer').owlCarousel({
     loop:true,
-    margin:10,
+    margin:20,
     nav:true,
     dots: false,
     autoplay: true,
@@ -1193,9 +1002,9 @@
   })
   
   $('.owl_views').owlCarousel({
-  loop:true,
-  margin:10,
-  autoplay: true,
+  
+  margin:20,
+  loop: true,
   nav:false,
   responsive:{
       0:{
@@ -1224,18 +1033,17 @@ jQuery(document).ready(function($) {
 var feedbackSlider = $('.feedback-slider');
 feedbackSlider.owlCarousel({
   items: 1,
-  nav: true,
-  dots: true,
+  nav: false,
+  dots: false,
   autoplay: true,
   loop: true,
   mouseDrag: true,
   touchDrag: true,
-  navText: ["<i class='fa fa-long-arrow-left'></i>", "<i class='fa fa-long-arrow-right'></i>"],
   responsive:{
 
     // breakpoint from 767 up
     767:{
-      nav: true,
+      nav: false,
       dots: false
     }
   }
