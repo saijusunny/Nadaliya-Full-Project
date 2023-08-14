@@ -36,10 +36,11 @@ def ind(request):
     return render(request, 'index.html',{"item_det":item_det})
 def index(request):
     all_images = bannerads.objects.all().last()
-    cat_images = category.objects.all()
+    cat_images = category.objects.all()[:3]
+    all_cat = category.objects.all()
     item_det = item.objects.all().order_by('-buying_count')[:10]
     offer = offer_zone.objects.all().order_by('-id')[:5]
-    return render(request, 'index/index.html',{'image': all_images,'cat':cat_images,"offer":offer,"item_det":item_det})
+    return render(request, 'index/index.html',{'image': all_images,'cat':cat_images,"offer":offer,"item_det":item_det,'all_cat':all_cat})
 
 def index_search_feature(request):
         

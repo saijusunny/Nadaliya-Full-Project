@@ -6,26 +6,27 @@
 <style>
     @import url("https://fonts.googleapis.com/css?family=Montserrat|Quicksand");
     body{
-        background-color: #f2f2f2;
+        background-color: #042454;
         font-family:Arial, Helvetica, sans-serif;
     }
    
     
 </style>
-<div class="container-fluid ">
-    <div class="row  bg-light p-3 ml-3 mr-3" style="margin-top: 8rem; margin-bottom: 2rem; border-radius: 20px;" >
+<div class="">
+    <div class="row  p-3 ml-3 mr-3" style="margin-top: 8rem; margin-bottom: 2rem; background-color: #042454; " >
         <div class="col-sm-12 col-md-6 col-lg-6" style="text-align: center;">
             <img src="{{ item.image.url }}"  class="w-75" alt="">
         </div>
-        <div class="col-sm-12 col-md-6 col-lg-6 mt-4 content" style="text-align: left;">
+        <div class="col-sm-12 col-md-6 col-lg-6 mt-4" style="text-align: left; color: white;">
             <h1>{{ item.name }}</h1>
             <p><span style="font-weight: bolder; font-size: 18px; color: red;">₹{{item.offer_price}}</span> <span disabled style="font-size: 16px;"><strike>₹{{item.price}}</strike></span> <span style="color: green;font-size: 14px;">{{item.offer}}%</span></p>
-            <p style="font-weight: bold;">{{item.title_description}}</p>
+            <textarea name="" class="form-control" rows="4" style="border: none;height: auto; background: transparent;color: white;">{{item.title_description}}</textarea>
+            <p style="font-weight: bold;"></p>
             <p style="font-weight: bold;">About this item</p>
-        
-            <p>{{ item.description }}</p>
+            <textarea name="" class="form-control" rows="5" style="border: none;height: auto; background: transparent; color: white;">{{item.description}}</textarea>
             
-            <a href="{% url 'add_cart_pr_view' item.id item.category_id%}" class="btn btn-dark form-control w-50" style="background-color: #042454;"> Add To Cart</a>
+            
+            <a href="{% url 'add_cart_pr_view' item.id item.category_id%}" class="btn btn-danger form-control w-50"> Add To Cart</a>
             
             
         </div>
