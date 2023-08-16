@@ -108,5 +108,7 @@ urlpatterns = [
     path('index_search_feature',views.index_search_feature,name='index_search_feature'),
 
     path('user_profile',views.user_profile,name='user_profile'),
-    path('edit_user_profile/<int:id>',views.edit_user_profile,name='edit_user_profile'), 
+    path('edit_user_profile/<int:id>',views.edit_user_profile,name='edit_user_profile'),
+
+    path('swiggy-item/<item_id>', views.swiggy_item_view, name='swiggy-item'),
     ]

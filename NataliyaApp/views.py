@@ -30,10 +30,13 @@ from django.template.loader import get_template
 from openpyxl import Workbook
 ######################################################################### <<<<<<<<<< LANDING MODULE >>>>>>>>>>>>>>
 
-def ind(request):
-    item_det = item.objects.all().order_by('-buying_count')[:10]
+def swiggy_item_view(request, item_id):
+    return redirect('https://www.swiggy.com/restaurants/{}'.format(item_id))
 
-    return render(request, 'index.html',{"item_det":item_det})
+def ind(request):
+    all_images = bannerads.objects.all().last()
+
+    return render(request, 'index.html',{'image': all_images,})
 def index(request):
     all_images = bannerads.objects.all().last()
     cat_images = category.objects.all()[:3]
