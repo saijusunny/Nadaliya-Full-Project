@@ -35,13 +35,13 @@
 
 
   {% if cart%}
-    <form action="{% url 'send_receipt'%}" method="POST" data-aos="fade-up">
-        {% csrf_token%}
         <div style="padding-bottom: 6%;padding-top: 6rem;">
             <div class="row pt-3 mb-5">
              
             <fieldset1 id="field1">
             {% for item in cart%}
+            <form action="{% url 'cart_view_by' item.id%}" method="POST" data-aos="fade-up">
+            {% csrf_token%}
             <div class="row" id="item_table" data-aos="fade-up">
             
                 <div class="col-sm-12 col-md-8 col-lg-8 ps-4 pe-4" style="margin: 0 auto;">
@@ -57,23 +57,31 @@
                         <div class="col-md-4 mt-3" style="text-align: center; ">
                             <img src="{{item.item.image.url}}" class="img-fluid rounded w-100" alt="..." >
                         </div>
-                        <div class="col-md-6">
-                            <div class="card-body mt-5">
+                        <div class="col-md-8">
+                            <div class="card-body">
                                 <center>
                                     <h5 class="card-title" style="text-align: left; font-weight: bold">{{item.item.name}}</h5>
 
                                 </center>         
                             <center>                  
-                                        <h5 style="text-align: left;"><span style="font-weight: bolder; font-size: 18px;">₹{{item.item.offer_price}}</span> <span disabled style="font-size: 16px;"><strike>₹{{item.item.price}}</strike></span> <span style="color: green;font-size: 14px;">{{item.item.offer}}%</span></h5>
+                                        <h5 style="text-align: left;"><span style="font-weight: bolder; font-size: 18px;">₹{{item.item.offer_price}}</span> <span disabled style="font-size: 16px;"><strike>₹{{item.item.price}}</strike></span> <span style="color: green;font-size: 14px;">{{item.item.offer}}% off</span></h5>
                             </center>
                             <p class="card-text">{{item.item.title_description}}</p>
+                            <p class="card-text">{{item.item.description}}</p>
+
+                            <div class="row">
+                                <div class="col-sm-12" style="text-align: left;">
+                                    <input type="submit" class="btn btn-danger form-control w-50" value="BUY">
+                                </div>
+                            </div>
+                            
                             <div class="row" style="bottom: 0;">
                                 <div class="col-sm-12" style="text-align: right;">
-                                        <input type="hidden" class="price" name='price[]' id="price{{forloop.counter}}" value="{{item.item.offer_price}}">
-                                        <input type="hidden" name='item_id[]' id="id" value="{{item.item_id}}">
-                                        <input type="hidden" name='' class="tot_item" id="tot_item{{forloop.counter}}" value="0">
-                                        <label for="" style="font-weight: bold;">Quantity : </label>
-                                        <input type="number" class="qty w-5  ml-3" onchange="calc_total('{{forloop.counter}}')" value="0" name='qty[]' id="qty{{forloop.counter}}">
+                                        <input type="hidden" class="price" name="price" id="price{{forloop.counter}}" value="{{item.item.offer_price}}">
+                                        <input type="hidden" name="id_item" id="id" value="{{item.item_id}}">
+                                       
+                                        
+                                        <input type="hidden" class="qty w-5  ml-3" onchange="calc_total('{{forloop.counter}}')" value="0" name="qty" id="qty{{forloop.counter}}">
                                         
             
                                     
@@ -82,51 +90,20 @@
                             
                         </div>
                         </div>
-                        </div>
-                    </div>
-                </div>
-            
-            </div>
-            {%endfor%} 
-            <div class="row" data-aos="fade-up">
-            
-                <div class="col-sm-12 col-md-8 col-lg-8 ps-4 pe-4" style="margin: 0 auto;">
-                    <div class="card mb-3" >
-                        <div class="row g-0">
-                        <div class="col-md-4" style="text-align: center; ">
-                            
-                        </div>
-                        <div class="col-md-6">
-                            <p class="card-text"></p>
-                            <div class="row mb-1" style="bottom: 0;">
-                                <div class="col-sm-12" style="text-align: right;">
-                                        <label for="" style="font-weight: bold;">Total : </label>
-                                        <input type="number" class="total ml-3 mr-3" name="total_amount" id="total" value="0.0">                                  
-                                </div>
-                                
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                
-            
-            </div>
-            <div class="row" data-aos="fade-up">
-                <div class="row mt-2" style="text-align: center;">
-                <div class="col-sm-12">
-                    <input type="submit" class="btn btn-outline-dark w-50" value="Checkout">
-                </div>
-                
-                </div>
-            </div>
 
+                        
+                        </div>
+                    </div>
+                </div>
             
-            
+            </div>
+            </form>
+            {%endfor%} 
+        
             </fieldset2>
             
         </div>
-    </form>
+    
 {%else%}
 <div class="row mt-5" >
             

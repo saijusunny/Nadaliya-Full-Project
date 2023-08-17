@@ -111,4 +111,6 @@ urlpatterns = [
     path('edit_user_profile/<int:id>',views.edit_user_profile,name='edit_user_profile'),
 
     path('swiggy-item/<item_id>', views.swiggy_item_view, name='swiggy-item'),
+    path('cart_view_by/<int:id>', views.cart_view_by, name='cart_view_by'),
+    
     ]

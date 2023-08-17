@@ -46,6 +46,13 @@ class Profile_User(models.Model):
     address =  models.TextField(blank=True,null=True)
     pro_pic = models.ImageField(upload_to='images/', default='static/images/logo/icon.png')
     joindate = models.DateField(null=True)
+    
+    banner_access = models.CharField(max_length=255,blank=True,null=True, default="false")
+    cat_access = models.CharField(max_length=255,blank=True,null=True, default="false")
+    user_access = models.CharField(max_length=255,blank=True,null=True, default="false")
+    item_access = models.CharField(max_length=255,blank=True,null=True, default="false")
+    offer_access = models.CharField(max_length=255,blank=True,null=True, default="false")
+    order_access = models.CharField(max_length=255,blank=True,null=True, default="false")
     def __str__(self):
         return f"{self.firstname} {self.lastname}"
 
@@ -79,6 +86,7 @@ class item(models.Model):
     offer = models.IntegerField(default=0)
     image = models.FileField(upload_to='images/items', default='static/images/logo/noimage.jpg')
     under_category=models.CharField(max_length=255,blank=True,null=True,choices = under)
+    link =  models.TextField(blank=True,null=True)
 
 class cart(models.Model):
     user = models.ForeignKey(User_Registration, on_delete=models.SET_NULL, null=True, blank=True)

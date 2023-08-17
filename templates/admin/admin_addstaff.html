@@ -32,44 +32,109 @@
                                 
                                 <div class="form-group">
                                     <label for="name">Name:</label>
-                                    <input type="text" id="name" name="name" value="{{staff_member.name}}" required class="form-control text-light">
+                                    <input type="text" id="name" name="name" required class="form-control text-light">
                                 </div>
                                 <div class="form-group">
                                     <label for="lastname">Last Name:</label>
-                                    <input type="text" id="lastname" name="lastname" required class="form-control text-light"  value="{{staff_member.lastname}}">
+                                    <input type="text" id="lastname" name="lastname" required class="form-control text-light">
                                 </div>
                                 <div class="form-group">
                                     <label for="nickname">Nickname:</label>
-                                    <input type="text" id="nickname" name="nickname" required class="form-control text-light"  value="{{staff_member.nickname}}">
+                                    <input type="text" id="nickname" name="nickname" required class="form-control text-light">
                                 </div>
                                 <div class="form-group">
                                     <label for="gender">Gender:</label>
-                                    <input type="text" id="gender" name="gender" required class="form-control text-light" value="{{staff_member.gender}}">
+                                    <input type="text" id="gender" name="gender" required class="form-control text-light">
                                 </div>
                                 <div class="form-group d-flex justify-content-center">
                                     <label for="date_of_birth">Date of Birth:</label>
-                                    <input class="ml-2 form-control text-light" type="date" id="date_of_birth" name="date_of_birth" required value="{{staff_member.date_of_birth| date:'Y-m-d'}}">
+                                    <input class="ml-2 form-control text-light" type="date" id="date_of_birth" name="date_of_birth" required >
                                 </div>
                                 <div class="form-group">
                                     <label for="phone_number">Phone Number:</label>
-                                    <input type="text" id="phone_number" name="phone_number" required class="form-control text-light" value="{{staff_member.phone_number}}">
+                                    <input type="text" id="phone_number" name="phone_number" required class="form-control text-light">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email:</label>
-                                    <input type="email" id="email" name="email" required class="form-control text-light" value="{{staff_member.email}}">
+                                    <input type="email" id="email" name="email" required class="form-control text-light">
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="username">Username:</label>
-                                    <input type="text" id="username" name="username" required class="form-control text-light" value="{{staff_member.username}}">
+                                    <input type="text" id="username" name="username" required class="form-control text-light">
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password:</label>
-                                    <input type="text" id="password" name="password" required class="form-control text-light" value="{{staff_member.password}}">
+                                    <input type="text" id="password" name="password" required class="form-control text-light">
                                     
                                 </div>
+
+                               
                                 
                             
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <input type="checkbox" id="banner_access" name="banner_access" value="true" class="text-light">
+                        </div>
+
+                        <div class="col-sm-11">
+                            <label for="password">Banner Access</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <input type="checkbox" id="cat_access" name="cat_access" value="true" class="text-light">
+                        </div>
+
+                        <div class="col-sm-11">
+                            <label for="password">Category Access</label>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <input type="checkbox" id="user_access" name="user_access" value="true" class="text-light">
+                        </div>
+
+                        <div class="col-sm-11">
+                            <label for="password">User Access</label>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <input type="checkbox" id="item_access" name="item_access" value="true" class="text-light">
+                        </div>
+
+                        <div class="col-sm-11">
+                            <label for="password">Item Access</label>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <input type="checkbox" id="offer_access" name="offer_access" value="true" class="text-light">
+                        </div>
+
+                        <div class="col-sm-11">
+                            <label for="password">Offer Access</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <input type="checkbox" id="order_access" name="order_access" value="true" class="text-light">
+                        </div>
+
+                        <div class="col-sm-11">
+                            <label for="password">Order Access</label>
                         </div>
                     </div>
                     <div class="row">

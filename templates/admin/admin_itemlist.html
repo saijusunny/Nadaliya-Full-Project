@@ -250,7 +250,6 @@
   </div>
 
   {%for item in items%}
-  <form action="{% url 'admin_edit_item' item.id %}" method="POST" enctype="multipart/form-data">
 
   <div class="rowmt-5 modal fade" id="dis{{item.id}}">
     <div class="modal-dialog bd-example-modal-xl modal-dialog-centered" role="document" tabindex="-1" role="dialog"
@@ -263,14 +262,14 @@
               <span aria-hidden="true">&times;</span>
             </button>
             
-            
+            <form action="{% url 'admin_edit_item' item.id %}" method="POST" enctype="multipart/form-data">
               {% csrf_token %}
               <h1 class="form-header text-uppercase" style="font-family:bold; font-size:34px;">Edit Item</h1>
               <hr>
           
               <div class="form-item form-item1">
                 <label for="title">Title</label>
-                <input id="title" type="text" name="title" value="{{ item.name }}" class="form-control text-light" required/>
+                <input id="title" type="text" name="title" value="{{ item.name }}" class="form-control text-light" />
                 
               </div>
           
@@ -278,7 +277,7 @@
           
               <div class="form-item form-item1">
                 <label for="under_category">Under Category</label>
-              <select name="under_category" id="under_category" required class="form-control text-light">
+              <select name="under_category" id="under_category"  class="form-control text-light">
                 <option value="{{ item.under_category}}" selected>{{ item.under_category}}</option>
   
                 {% for choice in under_choices %}
@@ -290,18 +289,18 @@
               </div>
               <div class="form-item form-item1">
                 <label for="price">Price</label>
-                <input id="price" type="number" name="price" value="{{ item.price }}" required  class="form-control text-light"/>
+                <input id="price" type="number" name="price" value="{{ item.price }}"   class="form-control text-light"/>
               </div>
           
               
           
               <div class="form-item form-item1">
                 <label for="offer_price">Offer Percentage</label>
-                <input id="offer_price" type="number" name="offer_percentage" value="{{ item.offer }}" required  class="form-control text-light"/>
+                <input id="offer_price" type="number" name="offer_percentage" value="{{ item.offer }}"   class="form-control text-light"/>
               </div>
               <div class="form-item animate-fade-in">
                 <label for="offer_price">Offer Price</label>
-                <input id="offer_price" type="number" name="offer_price" value="{{ item.offer_price }}" required  class="form-control text-light"/>
+                <input id="offer_price" type="number" name="offer_price" value="{{ item.offer_price }}"   class="form-control text-light"/>
               </div>
           
               
@@ -310,14 +309,14 @@
                 <label for="file-upload" class="custom-file-upload" >
                   <i class="fa fa-cloud-upload"></i> Choose File
                 </label>
-                <input type="file" id="file-upload" name="image" accept="image/*" required/>
+                <input type="file" id="file-upload" name="image" accept="image/*" />
                 <span id="image-size-info"></span>
               </div>
           
           
             <div class="form-item form-item1">
                 <label for="categories">Categories</label>
-                <select name="categories" id="categories" required>
+                <select name="categories" id="categories" >
                   <option value="{{ item.category.id}}" selected>{{ item.category.category_name}}</option>
                   {% for item in item_categories %}
                   <option value="{{ item.id }}" {% if item.id == item.category.id %}selected{% endif %}>
@@ -334,10 +333,15 @@
           
           
             </div>
+
+            <div class="textarea-div form-item animate-fade-in">
+              <label for="title_description">Redirect Link</label>
+              <textarea id="link" type="text" name="link" placeholder="Place Swiggy or Zomatto Url" >{{ item.link }}</textarea>
+            </div>
           
             <div class="textarea-div form-item9">
               <label for="title_description">Title Description</label>
-              <textarea id="title_description" type="text" name="title_description" placeholder="Title Description" maxlength="100"  required>{{ item.title_description }}</textarea>
+              <textarea id="title_description" type="text" name="title_description" placeholder="Title Description" maxlength="100"  >{{ item.title_description }}</textarea>
             </div>
           
             
@@ -349,13 +353,13 @@
             <div class="btn-container mt-2" style="text-align: center;">
               <input id="submit" class="btn btn-info " style="width:20%; border-radius:10px;" type="submit" name="submit" value="Submit" />
             </div>
-            </form>
+          </form>
           </div>
         </div>
       </div>
     </div>
   </div>
-</form>
+
 {%endfor%}
   
   

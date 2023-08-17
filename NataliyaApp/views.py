@@ -74,7 +74,12 @@ def login_main(request):
                 
                 request.session['userid'] = member.id
                 if Profile_User.objects.filter(user_id=member.id).exists():
-                    return redirect('staff_home')
+                    prop=Profile_User.objects.get(user_id=member.id)
+                    if prop.firstname == None:
+                        return redirect('profile_staff_creation')
+                    else:
+                        return redirect('staff_home')
+                        
                 else:
                     return redirect('profile_staff_creation')
                 
@@ -191,17 +196,27 @@ def edit_staff(request,id):
         form.username = request.POST.get('username',None)
         form.password = request.POST.get('password',None)
         form.save()
+
+        pro=Profile_User.objects.get(user=form)
+   
+        pro.banner_access = request.POST.get('banner_access')
+        pro.cat_access = request.POST.get('cat_access')
+        pro.user_access = request.POST.get('user_access')
+        pro.item_access = request.POST.get('item_access')
+        pro.offer_access = request.POST.get('offer_access')
+        pro.order_access = request.POST.get('order_access')
+        pro.save()
    
         
-        return redirect ("staff_list")
-    return redirect ("staff_list")
+        return redirect ("staff_all_list")
+    return redirect ("staff_all_list")
 
 def delete_staff(request,id):
     form = User_Registration.objects.get(id=id)
     pro= Profile_User.objects.get(user_id=id)
     form.delete()
     pro.delete()
-    return redirect ("staff_list")
+    return redirect ("staff_all_list")
 
 def upload_images(request):
     if request.method == 'POST':
@@ -295,7 +310,7 @@ def admin_add_item(request):
         under_category = form_data.get('under_category', None)
         title_description = form_data.get('title_description', None)
         description = form_data.get('description', None)
-
+        links= form_data.get('link', None)
         categorys = get_object_or_404(category, pk=category_id)
       
 
@@ -309,7 +324,8 @@ def admin_add_item(request):
             image = image,
             under_category = under_category,
             title_description = title_description,
-            description = description
+            description = description,
+            link = links
         )
         new_item.save()
         return redirect('admin_home')
@@ -322,6 +338,7 @@ def admin_add_item(request):
 
 
 def admin_edit_item(request, item_id):
+    
     item_instance = get_object_or_404(item, pk=item_id)
     item_categories = category.objects.all()
     under_choices = (
@@ -348,8 +365,8 @@ def admin_edit_item(request, item_id):
             item_instance.category = category_instance
         item_instance.under_category = form_data.get('under_category', '')
         item_instance.title_description = form_data.get('title_description', '')
-        item_instance.description = form_data.get('description', '')
-
+        item_instance.description = form_data.get('description', '') 
+        item_instance.link = form_data.get('link', '') 
         item_instance.save()
         return redirect('admin_home')
 
@@ -400,16 +417,28 @@ def add_staff(request):
                 form.role = "user1"
                 form.username = request.POST.get('username',None)
                 form.password = request.POST.get('password',None)
+
                 form.save()
-   
+
+                pro=Profile_User()
+                pro.user=form
+                pro.banner_access = request.POST.get('banner_access')
+                pro.cat_access = request.POST.get('cat_access')
+                pro.user_access = request.POST.get('user_access')
+                pro.item_access = request.POST.get('item_access')
+                pro.offer_access = request.POST.get('offer_access')
+                pro.order_access = request.POST.get('order_access')
+                pro.save()
         
-        return redirect ("staff_list")
+        return redirect ("staff_all_list")
     return render(request, "admin/admin_addstaff.html")
 
 
 def staff_all_list(request):
     staff_members = User_Registration.objects.filter(role='user1')
-    return render(request, 'admin/admin_stafflist.html', {'staff_members': staff_members})
+
+    prop = Profile_User.objects.all()
+    return render(request, 'admin/admin_stafflist.html', {'staff_members': staff_members,"prop":prop})
 
 def ad_category_list(request):
     cat=category.objects.all()
@@ -655,7 +684,7 @@ def new_module(request):
         under_category = form_data.get('under_category', None)
         title_description = form_data.get('title_description', None)
         description = form_data.get('description', None)
-
+        links= form_data.get('link', None)
         categorys = get_object_or_404(category, pk=category_id)
       
 
@@ -669,7 +698,8 @@ def new_module(request):
             image = image,
             under_category = under_category,
             title_description = title_description,
-            description = description
+            description = description,
+            link=links
         )
         new_item.save()
         return redirect('staff_home')
@@ -679,7 +709,7 @@ def new_module(request):
         'user':usr,
     }
 
-    return render(request,'staff/new_item_add.html',context,)
+    return render(request,'staff/new_item_add.html',context)
 #  ###############staff item list##################
 def staff_itemlist(request):
     ids=request.session['userid']
@@ -694,6 +724,7 @@ def staff_itemlist(request):
         'under_choices':under_choices,'user':usr})
 # ##############################staff item edit###########################
 def staff_itemedit(request, item_id):
+   
     ids=request.session['userid']
     usr=Profile_User.objects.get(user=ids)
 
@@ -728,7 +759,7 @@ def staff_itemedit(request, item_id):
         item_instance.under_category = form_data.get('under_category', '')
         item_instance.title_description = form_data.get('title_description', '')
         item_instance.description = form_data.get('description', '')
-
+        item_instance.link = form_data.get('link', '')
         item_instance.save()
         return redirect('staff_itemlist')
 
@@ -860,18 +891,18 @@ def profile_staff_creation(request):
         date_of_birth= request.POST.get('date_of_birth',None)
         pro_pics = request.FILES.get('propic',None)
         secondnumb = request.POST.get('secondnumb',None)
-        profile_artist = Profile_User(
-            firstname=firstname,
-            lastname=lastname,
-            phonenumber=phonenumber,
-            email=email,
-            gender=gender,
-            date_of_birth=date_of_birth,
-            address=address,
-            pro_pic=pro_pics,
-            user=usr,
-            secondnumber=secondnumb
-        )
+
+        profile_artist = Profile_User.objects.get(user=usr)
+        profile_artist.firstname=firstname
+        profile_artist.lastname=lastname
+        profile_artist.phonenumber=phonenumber
+        profile_artist.email=email
+        profile_artist.gender=gender
+        profile_artist.date_of_birth=date_of_birth
+        profile_artist.address=address
+        profile_artist.pro_pic=pro_pics
+        profile_artist.secondnumber=secondnumb
+      
         profile_artist.save()
 
 
@@ -1608,3 +1639,36 @@ def edit_user_profile(request,id):
         
         return redirect ("user_profile")
     return redirect ("user_profile")
+
+def cart_view_by(request,id):
+    ids=request.session['userid']
+    usr=User_Registration.objects.get(id=ids)
+    pro=Profile_User.objects.get(user=ids)
+    if request.method =="POST":
+        total_amount = request.POST.get('price')
+        item_ids = request.POST.get('id_item')
+        carts=cart.objects.get(id=id)
+        itm=item.objects.get(id=carts.item_id)
+        chk=checkout()
+        chk.user = usr
+        chk.profile = pro
+
+        chk.total_amount=itm.offer_price
+        chk.date=datetime.now()
+        chk.save()
+
+        itm.buying_count=int(itm.buying_count+1)
+        itm.save()
+
+        chk_out = checkout_item()
+        chk_out.item=itm
+      
+        chk_out.item_name=itm.name
+        chk_out.item_price=itm.offer_price
+        chk_out.checkout=chk
+        chk_out.save()
+        cart.objects.get(id=id).delete()
+    
+        return redirect(itm.link)
+    return redirect("cart_checkout")
+
